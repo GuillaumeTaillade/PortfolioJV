@@ -39,3 +39,21 @@ window.addEventListener("load", () => {
     dayNight.querySelector("i").classList.add("fa-moon");
   }
 })
+/* ===================== language mode ===================== */
+
+const langEl = document.querySelector('.langwrap');
+const link = document.querySelectorAll('.langwrap a');
+const helloEl = document.querySelector('.hello');
+
+// sélection de la langue choisie
+link.forEach(el => {
+  el.addEventListener('click', () => {
+    // gestion de la langue active
+    langEl.querySelector('.active').classList.remove('active');
+    el.classList.add('active');
+
+    // gérer le contenu
+    const attr = el.getAttribute('language');
+    helloEl.textContent = data[attr].hello;
+  });
+});
