@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>...</title>
+
+  <style type="text/css">
+    #mess {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="mess"></div>
+
+  <script type="text/javascript">
+
+    var m = document.getElementById("mess");// conteneur html
+    var ch = "sdfjsd++sdfsdfsf";// chaîne à afficher
+
+    m.appendChild(document.createTextNode(ch.split("++")[0]));// affichage du début de la chaîne
+
+    var petit = document.createElement("span");// création d'un span dans le conteneur
+    petit.style.fontSize = "12px";// définition d'une taille de caractères
+    petit.appendChild(document.createTextNode(ch.split("++")[1]));// afichage de la fin de la chaîne dans le span
+
+    m.appendChild(petit);// affichage du span dans le conteneur
+
+
+  </script>
+
+
+
+</body>
+
+</html>

@@ -41,9 +41,24 @@ window.addEventListener("load", () => {
 })
 /* ===================== language mode ===================== */
 
+function setTypingAnimation(stringArray) {
+
+  var typed = new Typed(".typing", {
+    strings:stringArray,
+    //strings:["","Game Developper","Web Developper"],
+    typeSpeed:100,
+    BackSpeed:60,
+    loop:true
+  });
+}
+
 const langEl = document.querySelector('.langwrap');
 const link = document.querySelectorAll('.langwrap a');
-const helloEl = document.querySelector('.hello');
+
+// conteneur html
+const helloEl = document.querySelector('.hello'); 
+const myProfessionEl = document.querySelector('.myProfession');
+const homeDescriptionEl = document.querySelector('.homeDescription');
 
 // sélection de la langue choisie
 link.forEach(el => {
@@ -54,6 +69,36 @@ link.forEach(el => {
 
     // gérer le contenu
     const attr = el.getAttribute('language');
-    helloEl.textContent = data[attr].hello;
+    /* ===== Hello Element ===== */
+
+    helloEl.textContent = ""; // je vide la chaine
+    // affichage du début de la chaine de caractère
+    helloEl.appendChild(document.createTextNode(data[attr].hello.split("+s+")[0])); 
+    // Création d'une balise span dans le conteneur
+    var helloSpan = document.createElement("span");
+    helloSpan.classList.add("name");
+    // ajout de la fin de la chaine de caractère
+    helloSpan.appendChild(document.createTextNode(data[attr].hello.split("+s+")[1]));
+    // affichage du span dans le conteneur
+    helloEl.appendChild(helloSpan);
+
+    /* ===== Fin Hello Element ===== */
+    /* ===== myProfession Element ===== */
+    myProfessionEl.textContent = "";
+    myProfessionEl.appendChild(document.createTextNode(data[attr].myProfession.split("+s+")[0]));
+    var myProfessionSpan = document.createElement("span");
+    myProfessionSpan.classList.add("typing");
+    myProfessionSpan.appendChild(document.createTextNode(data[attr].myProfession.split("+s+")[1]));
+    myProfessionEl.appendChild(myProfessionSpan);
+
+    /* ========== set typing animation ========== */
+    setTypingAnimation(data[attr].myProfessionArray);
+    
+    /* ===== Fin myProfession Element ===== */
+
+
+    //helloEl.textContent = data[attr].hello;
+    //myProfessionEl.textContent = data[attr].myProfession;
+    homeDescriptionEl.textContent = data[attr].homeDescription;
   });
 });
