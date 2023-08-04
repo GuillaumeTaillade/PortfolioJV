@@ -4,7 +4,7 @@ var data = {
     "hello":"Bonjour, je m'appelle +s+Guillaume Taillade",
     
     "myProfession":"Je suis un +s+",
-    "myProfessionArray":["","Développeur Jeu vidéo","Développeur Web"],
+    "myProfessionArray":["","Développeur jeu vidéo","Développeur web"],
     
     "homeDescription":"Étant amateur de jeux vidéo depuis mon enfance, je trouve ce média formidable et beaucoup de jeux ont été pour moi des expériences inoubliables. J'aimerais, via le métier de programmeur jeux vidéo, travailler sur des projets qui pourront apporter le même type d'expérience aux joueurs.",
   },
